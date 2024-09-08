@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>javascript</title>
+    </head>
+
+    <body>
+       <p>How many fingers are you holding up?</p>
+
+       <select id="myNumber">
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+       </select>
+       
+       <button id="btn">Enter</button>
+
+        <script type ="text/javascript">
+            // function that makes the guess
+            function doAGuess(correctAnswer) {
+                    const computerGuess = Math.floor(Math.random() * 6);
+                    if (computerGuess == correctAnswer) {
+                        computerGuessRight = true; 
+                        return true;                      
+                    } else {
+                        return false;
+                    }
+
+            }
+
+            document.getElementById("btn").onclick = function() {
+                const userFingers = document.getElementById("myNumber").value;
+
+                let computerGuessRight = false;
+
+                let i = 0;
+                    
+                while (computerGuessRight == false) {
+
+                    i++;
+                    if (doAGuess(userFingers) == true) {
+                        break;
+                    } else {
+                        computerGuessRight = false;
+                    }
+                }
+
+                alert(`You were holding up ${userFingers} fingers! It took the computer ${i} guesses to find out!`)
+            }
+           
+        </script>
+
+    </body>
+
+</html>
+
+<!-- <body>
+    <div id="redCircle"></div>
+    <div id="yellowCircle"></div>
+    <div id="blueCircle"></div>
+
+    <script type ="text/javascript">
+        document.getElementById("redCircle").onclick = function() {
+            document.getElementById("redCircle").style.display="none";
+        }
+        document.getElementById("yellowCircle").onclick = function() {
+            document.getElementById("yellowCircle").style.display="none";
+        }
+        document.getElementById("blueCircle").onclick = function() {
+            document.getElementById("blueCircle").style.display="none";
+        }
+       
+    </script>
+
+</body> -->
